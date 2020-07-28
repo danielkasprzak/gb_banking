@@ -1,0 +1,336 @@
+<html>
+    <head>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width">
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+        <style>
+			 #depositUI, #withdrawUI, #transferUI, #general, #topbar, #waiting, #waiting1, #loginin, #createaccount, #settings, #deleting
+			 {display: none;}
+		</style>
+	</head>
+    <body>
+    	<div class="container">
+    		<div id="result"></div>
+    		<div class="topbar" id="topbar">
+    			<div class="cont-p-1">
+    				<div class="parale-1 "></div>
+    			</div>
+    			<div class="cont-p-2">
+    				<div class="parale-2"></div>
+    			</div>
+    			<div class="cont-p-3">
+    				<div class="parale-3"></div>
+    			</div>
+    			<nav>
+    				<div class="logo-topbar"></div>
+    				<button class="btn-sign-out">Wyloguj się<i class="fas fa-sign-out-alt"></i></button>
+    			</nav> 
+    		</div>
+<!-- ########### GENERAL ###########  -->
+    		<div class="cont-content" id="general">
+    			<div class="flex">
+    				<div class="balance box-shadow">
+	    					<span class="name"><span class="username1"></span></span><br>
+	    					Aktualny stan konta<br>
+	    					<span class="money"><span class="curbalance"></span><span class="dollars"> $</span></span>
+	    				</p>
+		    		</div>
+		    		<div class="list-btn">
+		    			<button class="btn btn-orange" id="deposit">
+		    				<i class="far fa-money-bill-alt"></i>
+		    				<span class="far fa-money-bill-alt icon"></span>
+		    				<p>Depozyt<br>
+		    				<span>Wpłać pieniądze</span></p>
+		    			</button>
+			    		<button class="btn btn-orange" id="withdraw">
+			    			<i class="far fa-credit-card"></i>
+		    				<span class="far fa-credit-card icon"></span>
+		    				<p>Wypłata<br>
+		    				<span>Pobierz pieniądze</span></p>
+			    		</button>
+			    		<button class="btn btn-orange" id="transfer">
+			    			<i class="fas fa-exchange-alt"></i>
+		    				<span class="fas fa-exchange-alt icon"></span>
+		    				<p>Przelew<br>
+		    				<span>Wykonaj przelew</span></p>
+						</button>
+						<button class="btn btn-orange" id="settbutt">
+			    			<i class="fa fa-cog"></i>
+		    				<span class="fa fa-cog icon"></span>
+		    				<p>Ustawienia<br>
+		    				<span>Ustawienia konta</span></p>
+			    		</button>
+		    		</div>
+    			</div>
+    			<div class="flex">
+    				<div class="pub box-shadow confiance">
+    					<p>
+    						<span>Dziękujemy za zaufanie</span><br>
+    						Liczba utworzonych kont wzrosła o 7% od 2018 roku!
+    					</p>
+    					<div class="circle-confiance"></div>
+    				</div>
+    			</div>
+	    	</div>
+<!-- ########### DEPOSER ###########  -->
+	    	<div class="cont-content" id="depositUI">
+    			<div class="flex">
+    				<div class="btn btn-orange banniere">
+    					<p>Masz 100% pewności!<br>
+		    			<span>Z nami Twoje pieniądze są bezpieczne</span></p>
+    				</div>
+    				<button class="btn btn-grey back">
+    					<i class="fas fa-bars"></i>
+	    				<span class="fas fa-arrow-left icon"></span>
+	    				<p>Powrót<br>
+	    				<span>Do menu głównego</span></p>
+    				</button>
+    			</div>
+    			<form id="deposit1">
+    				<div class="input-cont box-shadow">
+    					<label>Ile chcesz wpłacić?</label>
+    					<input id="amount" type="number" placeholder="0 $">
+    				</div>
+    				<button class="btn btn-green" type="submit">
+    					<i class="fas fa-check"></i>
+	    				<span class="fas fa-check icon"></span>
+	    				<p>Akceptuję<br>
+	    				<span>Zatwierdź depozyt</span></p>
+    				</button>
+				</form>
+	    	</div>
+<!-- ########### RETIRER ###########  -->
+	    	<div class="cont-content" id="withdrawUI">
+    			<div class="flex">
+    				<div class="btn btn-orange banniere">
+    					<p>Wybierz pieniądze<br>
+		    			<span>Potrzebujesz gotówki? Dostaniesz ją od ręki!</span></p>
+    				</div>
+    				<button class="btn btn-grey back">
+    					<i class="fas fa-bars"></i>
+	    				<span class="fas fa-arrow-left icon"></span>
+	    				<p>Powrót<br>
+	    				<span>Do menu głównego</span></p>
+    				</button>
+    			</div>
+    			<form id="withdraw1">
+    				<div class="input-cont box-shadow">
+    					<label>Ile chcesz wypłacić?</label>
+    					<input id="amountw" type="number" placeholder="0 $">
+    				</div>
+    				<button class="btn btn-green" type="submit">
+    					<i class="fas fa-check"></i>
+	    				<span class="fas fa-check icon"></span>
+	    				<p>Akceptuję<br>
+	    				<span>Zatwierdź wypłatę</span></p>
+    				</button>
+				</form>
+	    	</div>
+<!-- ########### VIREMENT ###########  -->
+	    	<div class="cont-content" id="transferUI">
+    			<div class="flex">
+    				<div class="btn btn-orange banniere">
+    					<p>Dokonaj przelewu<br>
+		    			<span>Opłać swoje ranchunki lub wyślij komuś prezent</span></p>
+    				</div>
+    				<button class="btn btn-grey back">
+    					<i class="fas fa-bars"></i>
+	    				<span class="fas fa-arrow-left icon"></span>
+	    				<p>Powrót<br>
+	    				<span>Do menu głównego</span></p>
+    				</button>
+    			</div>
+    			<form id="transfer1">
+    				<div class="double-input">
+    					<div class="input-cont box-shadow">
+	    					<label>Na jaką kwotę chcesz dokonać przelewu?</label>
+	    					<input id="amountt" type="number" placeholder="0 $">
+	    				</div>
+	    				<div class="input-cont box-shadow">
+	    					<label>Kto jest odbiorcą przelewu?</label>
+	    					<input id="to" type="text" placeholder="Numer karty">
+	    				</div>
+    				</div>
+    				<button class="btn btn-green" type="submit">
+    					<i class="fas fa-check"></i>
+	    				<span class="fas fa-check icon"></span>
+	    				<p>Akceptuję<br>
+	    				<span>Zatwierdź przelew</span></p>
+    				</button>
+				</form>
+	    	</div>
+<!-- ########### LOGIN ###########  -->
+	    	<div class="cont-content" id="loginin">
+				<form id="login1">
+    				<div class="double-input">
+    					<div class="input-cont box-shadow">
+	    					<label>Podaj login:</label>
+	    					<input id="login" type="text" placeholder="Login">
+	    				</div>
+						<div class="input-cont box-shadow">
+							<label>Podaj hasło:</label>
+							<input id="password" type="password" placeholder="Hasło">
+						</div>
+					</div>
+
+					<button class="btn btn-green" type="submit">
+						<i class="fa fa-paper-plane"></i>
+						<span class="fa fa-paper-plane icon"></span>
+						<p>Zaloguj się<br></p>
+					</button>
+				</form>
+						<button class="btn btn-grey back1">
+							<i class="fas fa-bars"></i>
+							<span class="fas fa-arrow-left icon"></span>
+							<p>Powrót<br>
+							<span>Do menu głównego</span></p>
+						</button>
+			</div>
+<!-- ########### CREATE ###########  -->
+	    	<div class="cont-content" id="createaccount">
+				<form id="create1">
+					<div class="double-input">
+						<div class="input-crea box-shadow">
+							<label>Imię i nazwisko:</label>
+							<span class="fontbeauty"><span class="username2"></span></span>
+						</div>
+						<div class="input-crea box-shadow">
+							<label>Podaj hasło:</label>
+							<input id="password1" type="password" placeholder="Hasło">
+						</div>
+					</div>
+					<div class="double-input">
+						<div class="input-crea box-shadow">
+							<label>Podaj login:</label>
+							<input id="login12" type="text" placeholder="Login">
+						</div>
+						<div class="input-crea box-shadow">
+							<label>Podaj kod zapasowy:</label>
+							<input id="removecode" type="password" placeholder="Kod">
+						</div>
+					</div>
+
+						<button class="btn btn-green" type="submit">
+							<i class="fa fa-wrench"></i>
+							<span class="fa fa-wrench icon"></span>
+							<p>Stwórz konto<br></p>
+						</button>
+				</form>
+						<button class="btn btn-grey back1">
+							<i class="fas fa-bars"></i>
+							<span class="fas fa-arrow-left icon"></span>
+							<p>Powrót<br>
+							<span>Do menu głównego</span></p>
+						</button>
+			</div>
+<!-- ############# MENUNUUNUUN ############## -->
+			<div class="cont-content" id="waiting">
+				<div class="masno-input">
+					<button class="btn btn-green" id="logon">
+						<i class="fa fa-paper-plane"></i>
+						<span class="fa fa-paper-plane icon"></span>
+						<p>Zaloguj się<br></p>
+					</button>
+					<button class="btn btn-green" id="createac">
+						<i class="fa fa-wrench"></i>
+						<span class="fa fa-wrench icon"></span>
+						<p>Stwórz konto<br></p>
+					</button>
+				</div>
+				<div class="flex">
+    				<div class="pub2 box-shadow social">
+    					<p>Media społecznościowe</p>
+    					<ul class="graph">
+    						<li class="facebook"><i class="fab fa-facebook-f"></i></li>
+    						<li class="google"><i class="fab fa-google-plus-g"></i></li>
+    						<li class="rss"><i class="fas fa-rss"></i></li>
+    						<li class="twitter"><i class="fab fa-twitter"></i></li>
+    						<li class="insta"><i class="fab fa-instagram"></i></li>
+    					</ul>
+					</div>
+    			</div>
+			</div>
+<!-- ############# USTAWIENIA ############## -->
+    		<div class="cont-content" id="settings">
+    			<div class="flex">
+		    		<div class="list-settings">
+						<div class="input-newa box-shadow">
+							<label>Konto użytkownika:</label>
+							<span class="fontbeauty"><span class="username1"></span></span>
+						</div>
+						<div class="input-newa box-shadow">
+							<label>Numer karty:</label>
+							<span class="fontbeauty"><span class="creditnum"></span></span>
+						</div>
+						<div class="input-newa box-shadow">
+							<label>Kod PIN:</label>
+							<span class="fontbeauty"><span class="pinnum"></span></span>
+						</div>
+					</div>
+					<div class="list-settings2">
+						<button class="btn btn-orange" id="passchange">
+							<i class="fa fa-key"></i>
+							<span class="fa fa-key icon"></span>
+							<p>Zmiana hasła<br>
+							<span>Zmień hasło konta bankowego</span></p>
+						</button>
+						<button class="btn btn-orange" id="newpin">
+							<i class="fa fa-certificate"></i>
+							<span class="fa fa-certificate icon"></span>
+							<p>Zmień PIN<br>
+							<span>Zmiana PINu karty bankowej</span></p>
+						</button>
+						<button class="btn btn-orange" id="newcard">
+							<i class="fa fa-credit-card"></i>
+							<span class="fa fa-credit-card"></span>
+							<p>Wyrób kartę<br>
+							<span>Wyrób nową karte bankową [1000$]</span></p>
+						</button>
+						<button class="btn btn-orange" id="newmain">
+							<i class="fa fa-user-plus"></i>
+							<span class="fa fa-user-plus"></span>
+							<p>Główne konto<br>
+							<span>Uczyń to konto głównym</span></p>
+						</button>
+						<button class="btn btn-grey back">
+							<i class="fas fa-bars"></i>
+							<span class="fas fa-arrow-left icon"></span>
+							<p>Powrót<br>
+							<span>Do menu głównego</span></p>
+						</button>
+					</div>
+				</div>
+			</div>
+<!-- ############# ZMIANA HASLA ############## -->
+	    	<div class="cont-content" id="deleting">
+				<form id="deletit">
+					<div class="double-input">
+						<div class="input-cont box-shadow">
+							<label>Podaj nowe hasło:</label>
+							<input id="deletecode" type="password" placeholder="Nowe hasło">
+						</div>
+						<div class="input-cont box-shadow">
+							<label>Podaj kod zapasowy:</label>
+							<input id="backupcode" type="password" placeholder="Kod">
+						</div>
+					</div>
+					<button class="btn btn-green" type="submit">
+						<i class="fa fa-key"></i>
+						<span class="fa fa-key icon"></span>
+						<p>Zmień hasło<br></p>
+					</button>
+				</form>
+						<button class="btn btn-grey back">
+							<i class="fas fa-bars"></i>
+							<span class="fas fa-arrow-left icon"></span>
+							<p>Powrót<br>
+							<span>Do menu głównego</span></p>
+						</button>
+			</div>
+    	</div>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    	<script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+		<script src="index.js"></script>
+    </body>
+  </html>
