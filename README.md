@@ -203,4 +203,4 @@ end
 
 ### Credits
 
-> Made by goldblack[https://github.com/goldblackk]
+- Made by [Nyxon](https://github.com/Nyxonn)
