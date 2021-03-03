@@ -41,6 +41,7 @@
 If you want to make ESX paycheck work
 
 </div>
+
 - Navigate to `installation` folder.
 - Copy `paycheck.lua`.
 - Paste it into `es_extended/server` folder and replace.
