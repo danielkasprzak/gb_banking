@@ -1,15 +1,23 @@
-resource_manifest_version '77731fab-63ca-442c-a67b-abc70f28dfa5'
+fx_version 'cerulean'
+game 'gta5'
+
+author 'Nyxon#4418'
+description 'Extended banking script'
+version '3.0'
+
 
 client_scripts {
     'config.lua',
     'client/client.lua'
 }
+
 server_scripts {
     'config.lua',
-    'server.lua',
+    'server/server.lua',
     '@mysql-async/lib/MySQL.lua'
 }
-ui_page('client/html/UI.html')
+
+ui_page 'client/html/UI.html'
 
 files {
 	'client/html/UI.html',
@@ -29,4 +37,4 @@ files {
     'client/html/media/img/logo-top.png'
 }
 
---[[ MADE BY goldblack#4418 ]]--
+--[[ MADE BY Nyxon#4418 ]]--
