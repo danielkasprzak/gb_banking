@@ -33,7 +33,7 @@
 
 </div>
 
-- How can i change the language?
+- How can i change the language?<br />
 In the **config.lua** file.
 
 - Is it compatibile with ESX?<br />
