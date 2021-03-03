@@ -19,6 +19,15 @@
 
 <div align="center">
 
+## Requirements
+
+- ESX
+- MySQL-async
+
+</div>
+
+<div align="center">
+
 ## Installation
 
 </div>
