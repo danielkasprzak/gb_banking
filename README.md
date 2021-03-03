@@ -35,6 +35,15 @@
 - Put `gb_banking` folder into your `resources` folder.
 - Add `ensure gb_banking` in your `server.cfg` file.
 - Import `gb_banking.sql` into your database.
+<br>
+<div align="center">
+
+If you want to make ESX paycheck work
+
+</div>
+- Navigate to `installation` folder.
+- Copy `paycheck.lua`.
+- Paste it into `es_extended/server` folder and replace.
 
 <div align="center">
 

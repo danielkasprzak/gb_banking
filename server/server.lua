@@ -220,7 +220,7 @@ RegisterServerEvent('gb_banking:createnewcard')
 AddEventHandler('gb_banking:createnewcard', function()
 	local _source = source
 	local xPlayer = ESX.GetPlayerFromId(_source)
-	local creditcard = '54' .. math.random(10000000, 99999999)
+	local creditcard = '54' .. math.random(10, 99) .. ' ' .. math.random(1000, 9999) .. ' ' .. math.random(1000, 9999)
 	local base = 0
 	base = getAccountBalance(xPlayer.identifier)
 
@@ -277,12 +277,12 @@ AddEventHandler('gb_banking:createnewaccount', function(login, password, removec
 	-- local loginIn = getLoginInfo(xPlayer.identifier)
 	-- local myid = checkMyId(login)
 	local pin = math.random(1000, 9999)
-	local creditcard = '54' .. math.random(10000000, 99999999)
+	local creditcard = '54' .. math.random(10, 99) .. ' ' .. math.random(1000, 9999) .. ' ' .. math.random(1000, 9999)
 
 	local accountnumber = '69 ' .. ' ' .. math.random(1000, 9999) .. ' ' .. math.random(1000, 9999) .. ' ' .. math.random(1000, 9999)
 
 	if login ~= '' and password ~= '' and removecode ~= '' then
-		if string.len(removecode) ~= 4 then
+		if string.len(removecode) == 4 then
 			-- MySQL.Async.fetchAll('SELECT * FROM gb_banking WHERE realOwner = @realOwner', {['@realOwner'] = xPlayer.identifier}, function(result)
 					-- if myid ~= nil then
 					-- 	TriggerClientEvent('bank:result', _source, "error", Config.LoginInUse)
