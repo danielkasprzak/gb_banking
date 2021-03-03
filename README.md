@@ -10,7 +10,7 @@
 - Manual **ESX paycheck** account change.
 - **Debit cards** with possibility to change **cc number and PIN code**.
 - **Credit cards** with possibility to change **cc number and PIN code**.
-- You can pay using **not yours credit card**.
+- You can pay using **not yours debit card**.
 - Money transfer on **account number**.
 - Your account **login and password**.
 - Account **4 digit backup code**.
