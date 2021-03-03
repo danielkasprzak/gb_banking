@@ -6,11 +6,12 @@ CREATE TABLE `gb_banking` (
   `password` varchar(24) DEFAULT NULL,
   `removecode` varchar(4) DEFAULT NULL,
   `balance` int(24) NOT NULL DEFAULT '0',
-  `creditcard` varchar(10) DEFAULT NULL,
+  `creditcard` varchar(24) DEFAULT NULL,
   `pin` varchar(4) DEFAULT NULL,
   `isLogged` int(11) NOT NULL DEFAULT '0',
   `realOwner` varchar(50) DEFAULT NULL,
-  `mainAccount` int(11) NOT NULL DEFAULT '0'
+  `mainAccount` int(11) NOT NULL DEFAULT 0,
+  `accountNumber` varchar(24) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 ALTER TABLE `gb_banking`
