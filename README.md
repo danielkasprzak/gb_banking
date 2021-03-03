@@ -21,10 +21,10 @@
 
 ## Requirements
 
+</div>
+
 - ESX
 - MySQL-async
-
-</div>
 
 <div align="center">
 
