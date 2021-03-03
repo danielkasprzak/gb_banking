@@ -24,7 +24,7 @@
     			</div>
     			<nav>
     				<div class="logo-topbar"></div>
-    				<button class="btn-sign-out">Wyloguj się<i class="fas fa-sign-out-alt"></i></button>
+    				<button class="btn-sign-out">Log out<i class="fas fa-sign-out-alt"></i></button>
     			</nav> 
     		</div>
 <!-- ########### GENERAL ###########  -->
@@ -32,7 +32,9 @@
     			<div class="flex">
     				<div class="balance box-shadow">
 	    					<span class="name"><span class="username1"></span></span><br>
-	    					Aktualny stan konta<br>
+							Account number<br>
+							<span class="accnumerek"><span class="accnumber"></span></span><br>
+	    					Account balance<br>
 	    					<span class="money"><span class="curbalance"></span><span class="dollars"> $</span></span>
 	    				</p>
 		    		</div>
@@ -40,123 +42,123 @@
 		    			<button class="btn btn-orange" id="deposit">
 		    				<i class="far fa-money-bill-alt"></i>
 		    				<span class="far fa-money-bill-alt icon"></span>
-		    				<p>Depozyt<br>
-		    				<span>Wpłać pieniądze</span></p>
+		    				<p>Deposit<br>
+		    				<span>Deposit money</span></p>
 		    			</button>
 			    		<button class="btn btn-orange" id="withdraw">
 			    			<i class="far fa-credit-card"></i>
 		    				<span class="far fa-credit-card icon"></span>
-		    				<p>Wypłata<br>
-		    				<span>Pobierz pieniądze</span></p>
+		    				<p>Withdraw<br>
+		    				<span>Withdraw money</span></p>
 			    		</button>
 			    		<button class="btn btn-orange" id="transfer">
 			    			<i class="fas fa-exchange-alt"></i>
 		    				<span class="fas fa-exchange-alt icon"></span>
-		    				<p>Przelew<br>
-		    				<span>Wykonaj przelew</span></p>
+		    				<p>Transfer<br>
+		    				<span>Transfer money</span></p>
 						</button>
 						<button class="btn btn-orange" id="settbutt">
 			    			<i class="fa fa-cog"></i>
 		    				<span class="fa fa-cog icon"></span>
-		    				<p>Ustawienia<br>
-		    				<span>Ustawienia konta</span></p>
+		    				<p>Settings<br>
+		    				<span>Account settings</span></p>
 			    		</button>
 		    		</div>
     			</div>
     			<div class="flex">
     				<div class="pub box-shadow confiance">
     					<p>
-    						<span>Dziękujemy za zaufanie</span><br>
-    						Liczba utworzonych kont wzrosła o 7% od 2018 roku!
+    						<span>Thank you for your trust</span>
+    						Amount of created accounts grow up by 7% since 2018!
     					</p>
     					<div class="circle-confiance"></div>
     				</div>
     			</div>
 	    	</div>
-<!-- ########### DEPOSER ###########  -->
+<!-- ########### DEPOSIT ###########  -->
 	    	<div class="cont-content" id="depositUI">
     			<div class="flex">
     				<div class="btn btn-orange banniere">
-    					<p>Masz 100% pewności!<br>
-		    			<span>Z nami Twoje pieniądze są bezpieczne</span></p>
+    					<p>Deposit money<br>
+		    			<span>Your money is safe with us</span></p>
     				</div>
     				<button class="btn btn-grey back">
     					<i class="fas fa-bars"></i>
 	    				<span class="fas fa-arrow-left icon"></span>
-	    				<p>Powrót<br>
-	    				<span>Do menu głównego</span></p>
+						<p>Return<br>
+						<span>To main menu</span></p>
     				</button>
     			</div>
     			<form id="deposit1">
     				<div class="input-cont box-shadow">
-    					<label>Ile chcesz wpłacić?</label>
+    					<label>Deposit amount:</label>
     					<input id="amount" type="number" placeholder="0 $">
     				</div>
     				<button class="btn btn-green" type="submit">
     					<i class="fas fa-check"></i>
 	    				<span class="fas fa-check icon"></span>
-	    				<p>Akceptuję<br>
-	    				<span>Zatwierdź depozyt</span></p>
+	    				<p>Confirm<br>
+	    				<span>Deposit money</span></p>
     				</button>
 				</form>
 	    	</div>
-<!-- ########### RETIRER ###########  -->
+<!-- ########### WITHDRAW ###########  -->
 	    	<div class="cont-content" id="withdrawUI">
     			<div class="flex">
     				<div class="btn btn-orange banniere">
-    					<p>Wybierz pieniądze<br>
-		    			<span>Potrzebujesz gotówki? Dostaniesz ją od ręki!</span></p>
+    					<p>Withdraw money<br>
+		    			<span>Do you need cash? You'll get it right away!</span></p>
     				</div>
     				<button class="btn btn-grey back">
     					<i class="fas fa-bars"></i>
 	    				<span class="fas fa-arrow-left icon"></span>
-	    				<p>Powrót<br>
-	    				<span>Do menu głównego</span></p>
+						<p>Return<br>
+						<span>To main menu</span></p>
     				</button>
     			</div>
     			<form id="withdraw1">
     				<div class="input-cont box-shadow">
-    					<label>Ile chcesz wypłacić?</label>
+    					<label>Withdraw amount:</label>
     					<input id="amountw" type="number" placeholder="0 $">
     				</div>
     				<button class="btn btn-green" type="submit">
     					<i class="fas fa-check"></i>
 	    				<span class="fas fa-check icon"></span>
-	    				<p>Akceptuję<br>
-	    				<span>Zatwierdź wypłatę</span></p>
+	    				<p>Confirm<br>
+	    				<span>Withdraw money</span></p>
     				</button>
 				</form>
 	    	</div>
-<!-- ########### VIREMENT ###########  -->
+<!-- ########### TRANSFER ###########  -->
 	    	<div class="cont-content" id="transferUI">
     			<div class="flex">
     				<div class="btn btn-orange banniere">
-    					<p>Dokonaj przelewu<br>
-		    			<span>Opłać swoje ranchunki lub wyślij komuś prezent</span></p>
+    					<p>Transfer money<br>
+		    			<span>Pay your bills or send gift to somebody</span></p>
     				</div>
     				<button class="btn btn-grey back">
     					<i class="fas fa-bars"></i>
 	    				<span class="fas fa-arrow-left icon"></span>
-	    				<p>Powrót<br>
-	    				<span>Do menu głównego</span></p>
+						<p>Return<br>
+						<span>To main menu</span></p>
     				</button>
     			</div>
     			<form id="transfer1">
     				<div class="double-input">
     					<div class="input-cont box-shadow">
-	    					<label>Na jaką kwotę chcesz dokonać przelewu?</label>
+	    					<label>Transfer amount:</label>
 	    					<input id="amountt" type="number" placeholder="0 $">
 	    				</div>
 	    				<div class="input-cont box-shadow">
-	    					<label>Kto jest odbiorcą przelewu?</label>
-	    					<input id="to" type="text" placeholder="Numer karty">
+	    					<label>Transfer receiver:</label>
+	    					<input id="to" type="text" placeholder="Account number">
 	    				</div>
     				</div>
     				<button class="btn btn-green" type="submit">
     					<i class="fas fa-check"></i>
 	    				<span class="fas fa-check icon"></span>
-	    				<p>Akceptuję<br>
-	    				<span>Zatwierdź przelew</span></p>
+	    				<p>Confirm<br>
+	    				<span>Transfer money</span></p>
     				</button>
 				</form>
 	    	</div>
@@ -165,26 +167,26 @@
 				<form id="login1">
     				<div class="double-input">
     					<div class="input-cont box-shadow">
-	    					<label>Podaj login:</label>
+	    					<label>Enter login:</label>
 	    					<input id="login" type="text" placeholder="Login">
 	    				</div>
 						<div class="input-cont box-shadow">
-							<label>Podaj hasło:</label>
-							<input id="password" type="password" placeholder="Hasło">
+							<label>Enter password:</label>
+							<input id="password" type="password" placeholder="Password">
 						</div>
 					</div>
 
 					<button class="btn btn-green" type="submit">
 						<i class="fa fa-paper-plane"></i>
 						<span class="fa fa-paper-plane icon"></span>
-						<p>Zaloguj się<br></p>
+						<p>Login<br></p>
 					</button>
 				</form>
 						<button class="btn btn-grey back1">
 							<i class="fas fa-bars"></i>
 							<span class="fas fa-arrow-left icon"></span>
-							<p>Powrót<br>
-							<span>Do menu głównego</span></p>
+							<p>Return<br>
+							<span>To main menu</span></p>
 						</button>
 			</div>
 <!-- ########### CREATE ###########  -->
@@ -192,36 +194,36 @@
 				<form id="create1">
 					<div class="double-input">
 						<div class="input-crea box-shadow">
-							<label>Imię i nazwisko:</label>
+							<label>Name and surname:</label>
 							<span class="fontbeauty"><span class="username2"></span></span>
 						</div>
 						<div class="input-crea box-shadow">
-							<label>Podaj hasło:</label>
-							<input id="password1" type="password" placeholder="Hasło">
+							<label>Your password:</label>
+							<input id="password1" type="password" placeholder="Password">
 						</div>
 					</div>
 					<div class="double-input">
 						<div class="input-crea box-shadow">
-							<label>Podaj login:</label>
+							<label>Your login:</label>
 							<input id="login12" type="text" placeholder="Login">
 						</div>
 						<div class="input-crea box-shadow">
-							<label>Podaj kod zapasowy:</label>
-							<input id="removecode" type="password" placeholder="Kod">
+							<label>Backup code:</label>
+							<input id="removecode" type="password" placeholder="Code">
 						</div>
 					</div>
 
 						<button class="btn btn-green" type="submit">
 							<i class="fa fa-wrench"></i>
 							<span class="fa fa-wrench icon"></span>
-							<p>Stwórz konto<br></p>
+							<p>Create account<br></p>
 						</button>
 				</form>
 						<button class="btn btn-grey back1">
 							<i class="fas fa-bars"></i>
 							<span class="fas fa-arrow-left icon"></span>
-							<p>Powrót<br>
-							<span>Do menu głównego</span></p>
+							<p>Return<br>
+							<span>To main menu</span></p>
 						</button>
 			</div>
 <!-- ############# MENUNUUNUUN ############## -->
@@ -230,17 +232,17 @@
 					<button class="btn btn-green" id="logon">
 						<i class="fa fa-paper-plane"></i>
 						<span class="fa fa-paper-plane icon"></span>
-						<p>Zaloguj się<br></p>
+						<p>Login<br></p>
 					</button>
 					<button class="btn btn-green" id="createac">
 						<i class="fa fa-wrench"></i>
 						<span class="fa fa-wrench icon"></span>
-						<p>Stwórz konto<br></p>
+						<p>Create account<br></p>
 					</button>
 				</div>
 				<div class="flex">
     				<div class="pub2 box-shadow social">
-    					<p>Media społecznościowe</p>
+    					<p>Social media</p>
     					<ul class="graph">
     						<li class="facebook"><i class="fab fa-facebook-f"></i></li>
     						<li class="google"><i class="fab fa-google-plus-g"></i></li>
@@ -256,15 +258,15 @@
     			<div class="flex">
 		    		<div class="list-settings">
 						<div class="input-newa box-shadow">
-							<label>Konto użytkownika:</label>
+							<label>Account owner:</label>
 							<span class="fontbeauty"><span class="username1"></span></span>
 						</div>
 						<div class="input-newa box-shadow">
-							<label>Numer karty:</label>
+							<label>Debit card number:</label>
 							<span class="fontbeauty"><span class="creditnum"></span></span>
 						</div>
 						<div class="input-newa box-shadow">
-							<label>Kod PIN:</label>
+							<label>DC PIN Code:</label>
 							<span class="fontbeauty"><span class="pinnum"></span></span>
 						</div>
 					</div>
@@ -272,32 +274,32 @@
 						<button class="btn btn-orange" id="passchange">
 							<i class="fa fa-key"></i>
 							<span class="fa fa-key icon"></span>
-							<p>Zmiana hasła<br>
-							<span>Zmień hasło konta bankowego</span></p>
+							<p>Change password<br>
+							<span>Change account password</span></p>
 						</button>
 						<button class="btn btn-orange" id="newpin">
 							<i class="fa fa-certificate"></i>
 							<span class="fa fa-certificate icon"></span>
-							<p>Zmień PIN<br>
-							<span>Zmiana PINu karty bankowej</span></p>
+							<p>Change PIN<br>
+							<span>Change DC PIN code</span></p>
 						</button>
 						<button class="btn btn-orange" id="newcard">
 							<i class="fa fa-credit-card"></i>
 							<span class="fa fa-credit-card"></span>
-							<p>Wyrób kartę<br>
-							<span>Wyrób nową karte bankową [1000$]</span></p>
+							<p>Change DC<br>
+							<span>Change a debit card [1000$]</span></p>
 						</button>
 						<button class="btn btn-orange" id="newmain">
 							<i class="fa fa-user-plus"></i>
 							<span class="fa fa-user-plus"></span>
-							<p>Główne konto<br>
-							<span>Uczyń to konto głównym</span></p>
+							<p>Main account<br>
+							<span>Make this account main</span></p>
 						</button>
 						<button class="btn btn-grey back">
 							<i class="fas fa-bars"></i>
 							<span class="fas fa-arrow-left icon"></span>
-							<p>Powrót<br>
-							<span>Do menu głównego</span></p>
+							<p>Return<br>
+							<span>To main menu</span></p>
 						</button>
 					</div>
 				</div>
@@ -307,25 +309,25 @@
 				<form id="deletit">
 					<div class="double-input">
 						<div class="input-cont box-shadow">
-							<label>Podaj nowe hasło:</label>
-							<input id="deletecode" type="password" placeholder="Nowe hasło">
+							<label>Provide new password:</label>
+							<input id="deletecode" type="password" placeholder="New password">
 						</div>
 						<div class="input-cont box-shadow">
-							<label>Podaj kod zapasowy:</label>
-							<input id="backupcode" type="password" placeholder="Kod">
+							<label>Provide backup code:</label>
+							<input id="backupcode" type="password" placeholder="Code">
 						</div>
 					</div>
 					<button class="btn btn-green" type="submit">
 						<i class="fa fa-key"></i>
 						<span class="fa fa-key icon"></span>
-						<p>Zmień hasło<br></p>
+						<p>Change password<br></p>
 					</button>
 				</form>
 						<button class="btn btn-grey back">
 							<i class="fas fa-bars"></i>
 							<span class="fas fa-arrow-left icon"></span>
-							<p>Powrót<br>
-							<span>Do menu głównego</span></p>
+							<p>Return<br>
+							<span>To main menu</span></p>
 						</button>
 			</div>
     	</div>

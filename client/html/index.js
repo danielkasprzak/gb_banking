@@ -13,6 +13,7 @@ $(function() {
       $('.username1').html(event.data.player);
       $('.creditnum').html(event.data.creditcard);
       $('.pinnum').html(event.data.pin);
+      $('.accnumber').html(event.data.accNum);
       $('#general').show();
     } else if(event.data.type === "saymyname") {
       $('.username2').html(event.data.player);
@@ -84,34 +85,34 @@ $("#passchange").click(function(){
 
 $("#newpin").click(function(){
   $('#settings').hide();
-  $.post('http://gb_banking/pinnew', JSON.stringify({}))
+  $.post('https://gb_banking/pinnew', JSON.stringify({}))
   $('#general').show();
 })
 $("#newcard").click(function(){
   $('#settings').hide();
-  $.post('http://gb_banking/cardnew', JSON.stringify({}))
+  $.post('https://gb_banking/cardnew', JSON.stringify({}))
   $('#general').show();
 })
 $("#newmain").click(function(){
   $('#settings').hide();
-  $.post('http://gb_banking/changeMain', JSON.stringify({}))
+  $.post('https://gb_banking/changeMain', JSON.stringify({}))
   $('#general').show();
 })
 $("#createac").click(function(){
   $('#waiting').hide();
-  $.post('http://gb_banking/getname', JSON.stringify({}))
+  $.post('https://gb_banking/getname', JSON.stringify({}))
   $('#createaccount').show();
 })
 $("#login1").submit(function(e){
   e.preventDefault();
-  $.post('http://gb_banking/login', JSON.stringify({
+  $.post('https://gb_banking/login', JSON.stringify({
     login: $("#login").val(),
     password: $("#password").val()
   }))
 })
 $("#create1").submit(function(e){
   e.preventDefault();
-  $.post('http://gb_banking/createaccountnew', JSON.stringify({
+  $.post('https://gb_banking/createaccountnew', JSON.stringify({
     login12: $("#login12").val(),
     password1: $("#password1").val(),
     removecode: $("#removecode").val()
@@ -121,7 +122,7 @@ $("#create1").submit(function(e){
 })
     $("#deposit1").submit(function(e) {
       e.preventDefault();
-      $.post('http://gb_banking/deposit', JSON.stringify({
+      $.post('https://gb_banking/deposit', JSON.stringify({
           amount: $("#amount").val()
       }));
   $('#depositUI').hide();
@@ -130,7 +131,7 @@ $("#create1").submit(function(e){
 });
 $("#transfer1").submit(function(e) {
       e.preventDefault();
-      $.post('http://gb_banking/transfer', JSON.stringify({
+      $.post('https://gb_banking/transfer', JSON.stringify({
     to: $("#to").val(),
           amountt: $("#amountt").val()
       }));
@@ -138,14 +139,14 @@ $("#transfer1").submit(function(e) {
 });
 $("#withdraw1").submit(function(e) {
   e.preventDefault();
-      $.post('http://gb_banking/withdrawl', JSON.stringify({
+      $.post('https://gb_banking/withdrawl', JSON.stringify({
           amountw: $("#amountw").val()
       }));
   $("#amountw").val('');
 });
 $("#deletit").submit(function(e) {
   e.preventDefault();
-  $.post('http://gb_banking/usunkonto', JSON.stringify({
+  $.post('https://gb_banking/usunkonto', JSON.stringify({
     deletecode: $("#deletecode").val(),
     backupcode: $("#backupcode").val()
   }))
@@ -154,6 +155,6 @@ document.onkeyup = function(data){
       if (data.which == 27){
           $('#general, #settings, #waiting, #waiting1, #deleting, #loginin, #createaccount, #transferUI, #withdrawUI, #depositUI, #topbar').hide();
           $('body').removeClass("active");
-          $.post('http://gb_banking/NUIFocusOff', JSON.stringify({}));
+          $.post('https://gb_banking/NUIFocusOff', JSON.stringify({}));
       }
 }

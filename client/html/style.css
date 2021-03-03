@@ -236,11 +236,17 @@ nav{
 .balance .name{
 	font-size: 25px;
 	color: #e46e0d;
-	margin-bottom: 5px;
+	margin-bottom: 3px;
+    display: block;
+}
+.balance .accnumerek{
+	font-size: 18px;
+	color: #e46e0d;
+	margin-bottom: 3px;
     display: block;
 }
 .balance .money{
-	font-size: 60px;
+	font-size: 50px;
 	color: #e46e0d;
 	font-family: "vision-heavy", sans-serif;
 }

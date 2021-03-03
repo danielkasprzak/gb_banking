@@ -1,32 +1,35 @@
 Config              = {}
 
-Config.HelpText1 = "Naciśnij ~INPUT_PICKUP~ aby skorzystać z terminalu bankowego ~b~"
-Config.HelpText2 = "Naciśnij ~INPUT_PICKUP~ aby skorzystać z bankomatu ~b~"
+Config.UseATMS = false -- Define if players can use ATMS to open terminals
 
-Config.Logged = "Zalogowano"
-Config.CurrentlyLogged = "Ktoś już jest zalogowany na tym koncie"
-Config.WrongPassword = "Nieprawidłowe hasło"
+--[[ LOCALE ]]--
 
-Config.PINchanged = "Zmieniono kod PIN"
+Config.HelpText1 = "Press ~INPUT_PICKUP~ to use bank terminal ~b~"
+Config.HelpText2 = "Press ~INPUT_PICKUP~ to use ATM terminal ~b~"
 
-Config.NotEnoughMoney = "Nie posiadasz tyle pieniędzy"
-Config.NewCreditCard = "Wygenerowano nową kartę kredytową"
+Config.Logged = "Logged in"
+Config.CurrentlyLogged = "Someone is arleady logged in on this account"
+Config.WrongPassword = "Wrong password"
 
-Config.PasswordChanged = "Zmieniono hasło"
-Config.WrongBackup = "Niepoprawny kod zapasowy"
+Config.PINchanged = "PIN code changed"
 
-Config.ArleadyHaveAccount = "Posiadasz już konto"
-Config.LoginInUse = "Login jest już zajęty"
-Config.AccountCreated = "Pomyślnie utworzono konto"
+Config.NotEnoughMoney = "You don't have that much money"
+Config.NewDebitCard = "New debit card generated"
 
-Config.WrongAmount = "Nieprawidłowa kwota"
-Config.MoneyDeposit = "Wpłacono pieniądze"
-Config.MoneyWithdraw = "Wypłacono pieniądze"
+Config.PasswordChanged = "Changed password"
+Config.WrongBackup = "Wrong backup code"
 
-Config.TransferToMe = "Nie możesz przelać pieniędzy do samego siebie"
-Config.TransferDone = "Przelew wykonany"
+Config.LoginInUse = "Login is arleady taken"
+Config.AccountCreated = "Account successfully created"
 
-Config.NullValues = "Login/Hasło/Kod zapasowy nie może być pusty"
-Config.BackupCodeLenght = "Kod zapasowy nie może być dłuższy niż 4 cyfry"
+Config.WrongAmount = "Wrong amount"
+Config.MoneyDeposit = "Money deposited"
+Config.MoneyWithdraw = "Money withdrawed"
 
-Config.ChangedMainAccount = "Zmieniłeś główne konto"
+Config.TransferToMe = "You can't transfer money to yourself"
+Config.TransferDone = "Money transfered"
+
+Config.NullValues = "Login/Password/Backup code can't be empty"
+Config.BackupCodeLenght = "Backup code need to be 4 digit length"
+
+Config.ChangedMainAccount = "You've changed the main account"

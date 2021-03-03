@@ -1,4 +1,4 @@
---[[ MADE BY goldblack#4418 ]]--
+--[[ MADE BY Nyxon#4418 ]]--
 
 ESX				= nil
 inMenu			= true
@@ -147,15 +147,16 @@ if bankMenu then
 			pokazdowodbankanim()
 			portfeldowodbankprop()
 		end
-
 	elseif isNearATM then
-		DisplayHelpText(Config.HelpText2)
+		if Config.UseATMS then
+			DisplayHelpText(Config.HelpText2)
 
-		if IsControlJustPressed(1, 38) then
-			inMenu = true
-			SetNuiFocus(true, true)
-			SendNUIMessage({type = 'openGeneral'})
-			local ped = GetPlayerPed(-1)
+			if IsControlJustPressed(1, 38) then
+				inMenu = true
+				SetNuiFocus(true, true)
+				SendNUIMessage({type = 'openGeneral'})
+				local ped = GetPlayerPed(-1)
+			end
 		end
 	end
 				
@@ -200,14 +201,15 @@ RegisterNUICallback('login', function(data)
 end)
 
 RegisterNetEvent('successlogin')
-AddEventHandler('successlogin', function(login, playerName, credit, pinC)	
+AddEventHandler('successlogin', function(login, playerName, credit, pinC, accNum)	
 	TriggerServerEvent('bank:balance')
 	SendNUIMessage({
 		type = "succlogin",
 		account = login,
 		player = playerName,
 		creditcard = credit,
-		pin = pinC
+		pin = pinC,
+		accNum = accNum
 	})
 end)
 
@@ -277,7 +279,8 @@ Citizen.CreateThread(function()
 end)
 
 RegisterNUICallback('getname', function()
-	TriggerServerEvent('getmycasualname')
+	TriggerEvent('myname', 'Martin Klefedron')
+	--TriggerServerEvent('getmycasualname')
 end)
 
 RegisterNetEvent('myname')
@@ -386,7 +389,7 @@ end)
 --==            Capture Bank Distance          ==
 --===============================================
 function nearBank()
-	local player = GetPlayerPed(-1)
+	local player = PlayerPedId()
 	local playerloc = GetEntityCoords(player, 0)
 	
 	for _, search in pairs(banks) do
@@ -399,7 +402,7 @@ function nearBank()
 end
 
 function nearATM()
-	local player = GetPlayerPed(-1)
+	local player = PlayerPedId()
 	local playerloc = GetEntityCoords(player, 0)
 	
 	for _, search in pairs(atms) do
@@ -462,4 +465,4 @@ telefon = CreateObject(GetHashKey('prop_amb_phone'), GetEntityCoords(PlayerPedId
 AttachEntityToEntity(telefon, PlayerPedId(), GetPedBoneIndex(PlayerPedId(), 28422), -0.01, -0.005, 0.0, -10.0, 8.0, 0.0, 1, 0, 0, 0, 0, 1)
 end
 
---[[ MADE BY goldblack#4418 ]]--
+--[[ MADE BY Nyxon#4418 ]]--
