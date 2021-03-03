@@ -15,7 +15,7 @@
 - Your account **login and password**.
 - Account **4 digit backup code**.
 - Exploit protection.
-- **?** Dynamic steam hex change
+- **?** Dynamic identifier change
 
 <div align="center">
 
