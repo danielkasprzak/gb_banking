@@ -8,7 +8,7 @@
 
 - **Multiple bank accounts** for your character.
 - Manual **ESX paycheck** account change.
-- **Debit cards** with possibility to change **cc number and PIN code**.
+- **Debit cards** with possibility to change **dc number and PIN code**.
 - **Credit cards** with possibility to change **cc number and PIN code**.
 - You can pay using **not yours debit card**.
 - Money transfer on **account number**.
