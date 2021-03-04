@@ -376,7 +376,7 @@ end)
 --==               NUIFocusoff                 ==
 --===============================================
 RegisterNUICallback('NUIFocusOff', function()
-	TriggerServerEvent('gb_banking:updateLoggedFalse', id)
+	TriggerServerEvent('gb_banking:updateLoggedFalse')
 end)
 
 RegisterNetEvent('focusoff')

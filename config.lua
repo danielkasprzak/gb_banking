@@ -33,3 +33,5 @@ Config.NullValues = "Login/Password/Backup code cannot be empty"
 Config.BackupCodeLenght = "Backup code needs to be 4 digit length"
 
 Config.ChangedMainAccount = "You have changed the main account"
+
+Config.WrongAccountNumber = "This account number does not exist"

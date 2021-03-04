@@ -34,7 +34,7 @@ AddEventHandler('gb_banking:updateLoggedTrue', function(login)
 end)
 
 RegisterServerEvent('gb_banking:updateLoggedFalse')
-AddEventHandler('gb_banking:updateLoggedFalse', function(identifier)
+AddEventHandler('gb_banking:updateLoggedFalse', function()
 	local _source = source
 	local xPlayer = ESX.GetPlayerFromId(_source)
 	MySQL.Async.execute("UPDATE gb_banking SET isLogged = @isLogged WHERE identifier = @identifier", {
@@ -79,11 +79,11 @@ AddEventHandler('bank:login', function(login, password)
 
 	if passwordS == password then
 		if checkIfLogged == 0 then
-		Wait(500)
-			TriggerClientEvent('bank:result', _source, "success", Config.Logged)
 			TriggerEvent('gb_banking:updateIdentifier', login, xPlayer.identifier)
+			Wait(200)
 			TriggerClientEvent('successlogin', _source, login, imie, karta, pindo, numerek)
 			TriggerEvent('gb_banking:updateLoggedTrue', login)
+			TriggerClientEvent('bank:result', _source, "success", Config.Logged)
 		else
 			TriggerClientEvent('bank:result', _source, "error", Config.CurrentlyLogged)
 		end
@@ -183,25 +183,16 @@ end)
 
 --[[ BLOKADA ID ORAZ LOGINU ]]--
 
--- function getLoginInfo(identifier)
---     local result = MySQL.Sync.fetchAll("SELECT gb_banking.login FROM gb_banking WHERE gb_banking.realOwner = @realOwner", {
---         ['@realOwner'] = identifier
---     })
---     if result[1] ~= nil then
---         return result[1].login
---     end
---     return nil
--- end
-
--- function checkMyId(login) 
---     local result = MySQL.Sync.fetchAll("SELECT gb_banking.realOwner FROM gb_banking WHERE gb_banking.login = @login", {
---         ['@login'] = login
---     })
---     if result[1] ~= nil then
---         return result[1].realOwner
---     end
---     return nil
--- end
+function isLoginInUse(login)
+	local result = MySQL.Sync.fetchAll('SELECT * FROM gb_banking WHERE login = @login',
+	{
+		['@login'] = login
+	})
+    if result[1] ~= nil then
+        return true
+    end
+    return false
+end
 
 RegisterServerEvent('gb_banking:createnewdcpin')
 AddEventHandler('gb_banking:createnewdcpin', function()
@@ -274,19 +265,17 @@ AddEventHandler('gb_banking:createnewaccount', function(login, password, removec
 	local _source = source
 	local xPlayer = ESX.GetPlayerFromId(_source)
 	local name = GetCharacterName(_source)
-	-- local loginIn = getLoginInfo(xPlayer.identifier)
-	-- local myid = checkMyId(login)
 	local dc_pin = math.random(1000, 9999)
 	local debitcard = '54' .. math.random(10, 99) .. ' ' .. math.random(1000, 9999) .. ' ' .. math.random(1000, 9999)
 
-	local accountnumber = '69 ' .. ' ' .. math.random(1000, 9999) .. ' ' .. math.random(1000, 9999) .. ' ' .. math.random(1000, 9999)
+	local accountnumber = '69 '.. math.random(1000, 9999) .. ' ' .. math.random(1000, 9999) .. ' ' .. math.random(1000, 9999)
 
 	if login ~= '' and password ~= '' and removecode ~= '' then
+		local checkingLogin = isLoginInUse(login)
 		if string.len(removecode) == 4 then
-			-- MySQL.Async.fetchAll('SELECT * FROM gb_banking WHERE realOwner = @realOwner', {['@realOwner'] = xPlayer.identifier}, function(result)
-					-- if myid ~= nil then
-					-- 	TriggerClientEvent('bank:result', _source, "error", Config.LoginInUse)
-					-- else
+					if checkingLogin then
+					 	TriggerClientEvent('bank:result', _source, "error", Config.LoginInUse)
+					else
 						MySQL.Async.execute('INSERT INTO gb_banking (name, login, password, removecode, debitcard, dc_pin, isLogged, realOwner, mainAccount, accountNumber) VALUES (@name, @login, @password, @removecode, @debitcard, @dc_pin, @isLogged, @realOwner, @mainAccount, @accountNumber)',
 						{
 							['@name']   = name,
@@ -301,8 +290,7 @@ AddEventHandler('gb_banking:createnewaccount', function(login, password, removec
 							['@accountNumber'] = accountnumber
 						})
 						TriggerClientEvent('bank:result', _source, "success", Config.AccountCreated)
-					-- end
-			-- end)
+					end
 		else
 			TriggerClientEvent('bank:result', _source, "error", Config.BackupCodeLenght)
 		end
@@ -445,7 +433,7 @@ AddEventHandler('bank:deposit', function(amount)
 	else
 		xPlayer.removeMoney(amount)
 		addAccountBalance(amount)
-		Wait(500)
+	--	Wait(500)
 		TriggerClientEvent('bank:result', _source, "success", Config.MoneyDeposit)
 		TriggerClientEvent('depositDONE', _source)
 	end
@@ -464,7 +452,7 @@ AddEventHandler('bank:withdraw', function(amount)
 	else
 		removeAccountBalance(xPlayer.identifier, amount)
 		xPlayer.addMoney(amount)
-		Wait(500)
+	--	Wait(500)
 		TriggerClientEvent('bank:result', _source, "success", Config.MoneyWithdraw)
 		TriggerClientEvent('withdrawDONE', _source)
 	end
@@ -479,15 +467,13 @@ AddEventHandler('bank:transfer', function(to, amountt)
 	local mybalance = 0
 	local hisbalance = 0
 	local amount = tonumber(amountt)
-	-- local kontozioma = ifAccounttExists(to)
+	local kontozioma = ifAccounttExists(to)
 	local mojekonto = isAccMine(xPlayer.identifier)
 	
-	-- if idgracza == nil then
-	-- 	TriggerClientEvent('bank:result', _source, "error", "Nieprawidłowy numer karty")
-	-- else
+	if kontozioma then
 		mybalance = getAccountBalance(xPlayer.identifier)
 		hisbalance = getAccountBalanceFromNumber(to)
-		Wait(300)
+	--	Wait(300)
 		if to == mojekonto then
 			TriggerClientEvent('bank:result', _source, "error", Config.TransferToMe)
 		else
@@ -496,12 +482,14 @@ AddEventHandler('bank:transfer', function(to, amountt)
 			else
 				removeAccountBalance(xPlayer.identifier, amount)
 				addAccountBalanceSomeone(to, amount, hisbalance)
-				Wait(300)
+			--	Wait(300)
 				TriggerClientEvent('bank:result', _source, "success", Config.TransferDone)
 				TriggerClientEvent('transferDONE', _source)
 			end
 		end
-	-- end
+	else
+		TriggerClientEvent('bank:result', _source, "error", Config.WrongAccountNumber)
+	end
 end)
 
 function isAccMine(identifier)
@@ -515,13 +503,14 @@ function isAccMine(identifier)
 end
 
 function ifAccounttExists(accountNumber)
-	local result = MySQL.Sync.fetchAll("SELECT * FROM gb_banking WHERE accountNumber = @accountNumber",{
-		["@accountNumber"] = accountNumber
+	local result = MySQL.Sync.fetchAll("SELECT * FROM gb_banking WHERE accountNumber = @accountNumber",
+	{
+		["@accountNumber"] = tostring(accountNumber)
 	})
     if result[1] ~= nil then
-        return result[1].accountNumber
+        return true
     end
-    return nil
+    return false
 end
 
 function getAccountBalanceFromNumber(accNummmmmerm)
@@ -535,8 +524,6 @@ function getAccountBalanceFromNumber(accNummmmmerm)
 end
 
 function addAccountBalanceSomeone(accNummmmmerm, money, zbalance)
-	local _source = source
-
 	MySQL.Async.execute("UPDATE gb_banking SET balance = @balance WHERE accountNumber = @accountNumber", {
 		['@accountNumber'] = accNummmmmerm,
 		['@balance'] = zbalance + money
