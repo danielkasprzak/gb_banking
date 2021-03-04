@@ -75,18 +75,18 @@ AddEventHandler('bank:login', function(login, password)
 	local pindo = getOwnersDcPIN(login)
 	local numerek = getOwnersAccNum(login)
 
-	-- local checkIfLogged = checking(login)
+	local checkIfLogged = checking(login)
 
 	if passwordS == password then
-		-- if checkIfLogged == 0 then
+		if checkIfLogged == 0 then
 		Wait(500)
 			TriggerClientEvent('bank:result', _source, "success", Config.Logged)
 			TriggerEvent('gb_banking:updateIdentifier', login, xPlayer.identifier)
 			TriggerClientEvent('successlogin', _source, login, imie, karta, pindo, numerek)
 			TriggerEvent('gb_banking:updateLoggedTrue', login)
-		-- else
-			-- TriggerClientEvent('bank:result', _source, "error", Config.CurrentlyLogged)
-		-- end
+		else
+			TriggerClientEvent('bank:result', _source, "error", Config.CurrentlyLogged)
+		end
 	else
 		TriggerClientEvent('bank:result', _source, "error", Config.WrongPassword)
 	end
@@ -161,30 +161,23 @@ end)
 --[[ IMIE I NAZWISKO ]]--
 
 function GetCharacterName(source)
+	local _source = source
+	local xPlayer = ESX.GetPlayerFromId(_source)
 	local result = MySQL.Sync.fetchAll('SELECT * FROM users WHERE identifier = @identifier',
 	{
-		['@identifier'] = GetPlayerIdentifiers(source)[1]
+		['@identifier'] = xPlayer.identifier
 	})
-if result[1] ~= nil and result[1].firstname ~= nil and result[1].lastname ~= nil then
+	if result[1] ~= nil and result[1].firstname ~= nil and result[1].lastname ~= nil then
 		return result[1].firstname .. ' ' .. result[1].lastname
 	else
-		return GetPlayerName(source)
+		return GetPlayerName(_source)
 	end
 end
 
 RegisterServerEvent('getmycasualname')
 AddEventHandler('getmycasualname', function()
 	local _source = source
-	local name = ''
-	local result = MySQL.Sync.fetchAll('SELECT * FROM users WHERE identifier = @identifier',
-	{
-		['@identifier'] = GetPlayerIdentifiers(source)[1]
-	})
-	if result[1] ~= nil and result[1].firstname ~= nil and result[1].lastname ~= nil then
-		name = result[1].firstname .. ' ' .. result[1].lastname
-	else
-		name = GetPlayerName(source)
-	end
+	local name = GetCharacterName(_source)
 	TriggerClientEvent('myname', _source, name)
 end)
 
@@ -280,7 +273,7 @@ RegisterServerEvent('gb_banking:createnewaccount')
 AddEventHandler('gb_banking:createnewaccount', function(login, password, removecode)
 	local _source = source
 	local xPlayer = ESX.GetPlayerFromId(_source)
-	local name = 'Martin Klefedron' --GetCharacterName(_source)
+	local name = GetCharacterName(_source)
 	-- local loginIn = getLoginInfo(xPlayer.identifier)
 	-- local myid = checkMyId(login)
 	local dc_pin = math.random(1000, 9999)
