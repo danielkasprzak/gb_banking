@@ -75,18 +75,18 @@ AddEventHandler('bank:login', function(login, password)
 	local pindo = getOwnersDcPIN(login)
 	local numerek = getOwnersAccNum(login)
 
-	local checkIfLogged = checking(login)
+--	local checkIfLogged = checking(login)
 
 	if passwordS == password then
-		if checkIfLogged == 0 then
+	--	if checkIfLogged == 0 then
 			TriggerEvent('gb_banking:updateIdentifier', login, xPlayer.identifier)
-			Wait(200)
+			Wait(100)
 			TriggerClientEvent('successlogin', _source, login, imie, karta, pindo, numerek)
-			TriggerEvent('gb_banking:updateLoggedTrue', login)
+		--	TriggerEvent('gb_banking:updateLoggedTrue', login)
 			TriggerClientEvent('bank:result', _source, "success", Config.Logged)
-		else
-			TriggerClientEvent('bank:result', _source, "error", Config.CurrentlyLogged)
-		end
+	--	else
+	--		TriggerClientEvent('bank:result', _source, "error", Config.CurrentlyLogged)
+	--	end
 	else
 		TriggerClientEvent('bank:result', _source, "error", Config.WrongPassword)
 	end
