@@ -23,8 +23,9 @@
 
 </div>
 
-- ESX
-- MySQL-async
+- es_extended
+- mysql-async
+- esx_identity
 
 <div align="center">
 
