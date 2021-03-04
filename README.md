@@ -23,9 +23,9 @@
 
 </div>
 
-- es_extended
-- mysql-async
-- esx_identity
+- [es_extended](https://github.com/esx-framework/es_extended/tree/v1-final)
+- [mysql-async](https://github.com/brouznouf/fivem-mysql-async)
+- [esx_identity](https://github.com/esx-framework/esx_identity)
 
 <div align="center">
 
