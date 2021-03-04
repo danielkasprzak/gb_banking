@@ -11,7 +11,7 @@ $(function() {
     } else if (event.data.type === "succlogin"){
       $('#loginin').hide();
       $('.username1').html(event.data.player);
-      $('.creditnum').html(event.data.creditcard);
+      $('.debitnum').html(event.data.debitcard);
       $('.pinnum').html(event.data.pin);
       $('.accnumber').html(event.data.accNum);
       $('#general').show();

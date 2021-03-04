@@ -201,13 +201,13 @@ RegisterNUICallback('login', function(data)
 end)
 
 RegisterNetEvent('successlogin')
-AddEventHandler('successlogin', function(login, playerName, credit, pinC, accNum)	
+AddEventHandler('successlogin', function(login, playerName, debit, pinC, accNum)	
 	TriggerServerEvent('bank:balance')
 	SendNUIMessage({
 		type = "succlogin",
 		account = login,
 		player = playerName,
-		creditcard = credit,
+		debitcard = debit,
 		pin = pinC,
 		accNum = accNum
 	})
@@ -228,7 +228,7 @@ RegisterNUICallback('changepassword', function(data)
 end)
 
 RegisterNUICallback('pinnew', function()
-	TriggerServerEvent('gb_banking:createnewpin')
+	TriggerServerEvent('gb_banking:createnewdcpin')
 end)
 
 RegisterNUICallback('cardnew', function()
@@ -278,14 +278,16 @@ Citizen.CreateThread(function()
 	end
 end)
 
+--===============================================
+--==             Name Event	                   ==
+--===============================================
+
 RegisterNUICallback('getname', function()
-	TriggerEvent('myname', 'Martin Klefedron')
-	--TriggerServerEvent('getmycasualname')
+	TriggerServerEvent('getmycasualname')
 end)
 
 RegisterNetEvent('myname')
 AddEventHandler('myname', function(playerName)
-
 	SendNUIMessage({
 		type = "saymyname",
 		player = playerName
@@ -422,47 +424,47 @@ function DisplayHelpText(str)
 end
 
 function pokazdowodbankanim()
-RequestAnimDict("random@atmrobberygen")
-while (not HasAnimDictLoaded("random@atmrobberygen")) do Citizen.Wait(0) end
-TaskPlayAnim(PlayerPedId(), "random@atmrobberygen", "a_atm_mugging", 8.0, 3.0, 2000, 0, 1, false, false, false)
+	RequestAnimDict("random@atmrobberygen")
+	while (not HasAnimDictLoaded("random@atmrobberygen")) do Citizen.Wait(0) end
+	TaskPlayAnim(PlayerPedId(), "random@atmrobberygen", "a_atm_mugging", 8.0, 3.0, 2000, 0, 1, false, false, false)
 end
 
 function portfeldowodbankprop()
-portfel = CreateObject(GetHashKey('prop_ld_wallet_01'), GetEntityCoords(PlayerPedId()), true)-- creates object
-AttachEntityToEntity(portfel, PlayerPedId(), GetPedBoneIndex(PlayerPedId(), 0x49D9), 0.17, 0.0, 0.019, -120.0, 0.0, 0.0, 1, 0, 0, 0, 0, 1)
-Citizen.Wait(500)
-dowod = CreateObject(GetHashKey('prop_michael_sec_id'), GetEntityCoords(PlayerPedId()), true)-- creates object
-AttachEntityToEntity(dowod, PlayerPedId(), GetPedBoneIndex(PlayerPedId(), 0xDEAD), 0.150, 0.045, -0.015, 0.0, 0.0, 180.0, 1, 0, 0, 0, 0, 1)
-Citizen.Wait(1300)
-usuwaniebankprop()
+	portfel = CreateObject(GetHashKey('prop_ld_wallet_01'), GetEntityCoords(PlayerPedId()), true)-- creates object
+	AttachEntityToEntity(portfel, PlayerPedId(), GetPedBoneIndex(PlayerPedId(), 0x49D9), 0.17, 0.0, 0.019, -120.0, 0.0, 0.0, 1, 0, 0, 0, 0, 1)
+	Citizen.Wait(500)
+	dowod = CreateObject(GetHashKey('prop_michael_sec_id'), GetEntityCoords(PlayerPedId()), true)-- creates object
+	AttachEntityToEntity(dowod, PlayerPedId(), GetPedBoneIndex(PlayerPedId(), 0xDEAD), 0.150, 0.045, -0.015, 0.0, 0.0, 180.0, 1, 0, 0, 0, 0, 1)
+	Citizen.Wait(1300)
+	usuwaniebankprop()
 end
 
 function usuwaniebankprop()
-DeleteEntity(dowod)
-DeleteEntity(telefon)
-Citizen.Wait(200)
-DeleteEntity(portfel)
+	DeleteEntity(dowod)
+	DeleteEntity(telefon)
+	Citizen.Wait(200)
+	DeleteEntity(portfel)
 end
 
 function usuwanieallbankprop()
-DeleteEntity(dowod)
-DeleteEntity(telefon)
-DeleteEntity(portfel)
+	DeleteEntity(dowod)
+	DeleteEntity(telefon)
+	DeleteEntity(portfel)
 end
  
 function przelewkomendaanim()
-RequestAnimDict("amb@world_human_stand_mobile@male@text@base")
-while (not HasAnimDictLoaded("amb@world_human_stand_mobile@male@text@base")) do Citizen.Wait(0) end
-TaskPlayAnim(PlayerPedId(), "amb@world_human_stand_mobile@male@text@base", "base", 8.0, 3.0, 5000, 51, 1, false, false, false)
-Citizen.Wait(5000)
-usuwanieallbankprop()
+	RequestAnimDict("amb@world_human_stand_mobile@male@text@base")
+	while (not HasAnimDictLoaded("amb@world_human_stand_mobile@male@text@base")) do Citizen.Wait(0) end
+	TaskPlayAnim(PlayerPedId(), "amb@world_human_stand_mobile@male@text@base", "base", 8.0, 3.0, 5000, 51, 1, false, false, false)
+	Citizen.Wait(5000)
+	usuwanieallbankprop()
 end
 
 function przelewtelefonprop()
-usuwanieallbankprop()
-Citizen.Wait(1)
-telefon = CreateObject(GetHashKey('prop_amb_phone'), GetEntityCoords(PlayerPedId()), true)-- creates object
-AttachEntityToEntity(telefon, PlayerPedId(), GetPedBoneIndex(PlayerPedId(), 28422), -0.01, -0.005, 0.0, -10.0, 8.0, 0.0, 1, 0, 0, 0, 0, 1)
+	usuwanieallbankprop()
+	Citizen.Wait(1)
+	telefon = CreateObject(GetHashKey('prop_amb_phone'), GetEntityCoords(PlayerPedId()), true)-- creates object
+	AttachEntityToEntity(telefon, PlayerPedId(), GetPedBoneIndex(PlayerPedId(), 28422), -0.01, -0.005, 0.0, -10.0, 8.0, 0.0, 1, 0, 0, 0, 0, 1)
 end
 
 --[[ MADE BY Nyxon#4418 ]]--
