@@ -1,5 +1,8 @@
 --[[ MADE BY Nyxon#4418 ]]--
 
+
+--[[ CHAR_BANK_MAZE are replaced by CHAR_BANK_FLEECA ]]--
+
 ESX.StartPayCheck = function()
 	function payCheck()
 		local xPlayers = ESX.GetPlayers()

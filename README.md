@@ -39,13 +39,23 @@
 <br>
 <div align="center">
 
-If you want to make ESX paycheck work
+If you want to make **ESX paycheck** work with main accounts
 
 </div>
 
-- Navigate to `installation` folder.
+- Navigate to `installation/es_extended/server` folder.
 - Copy `paycheck.lua`.
 - Paste it into `es_extended/server` folder and replace.
+<br>
+<div align="center">
+
+If you want to make **esx_shops** work with debit cards
+
+</div>
+
+- Navigate to `installation/esx_shops` folder.
+- Replace and add events from `server.lua` into your shop server script.
+- Add function and replace fragment of code from `client.lua` in your shop client script.
 
 <div align="center">
 
