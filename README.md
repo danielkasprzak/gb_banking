@@ -36,6 +36,7 @@
 - Put `gb_banking` folder into your `resources` folder.
 - Add `ensure gb_banking` in your `server.cfg` file.
 - Import `gb_banking.sql` into your database.
+- Delete your server data `cache` folder.
 <br>
 <div align="center">
 

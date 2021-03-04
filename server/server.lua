@@ -1,8 +1,8 @@
 --[[ MADE BY Nyxon#4418 ]]--
 
+print('[^3gb_banking^7] ^2Successfully initialized.^7')
 
 ESX = nil
-
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 RegisterServerEvent('gb_banking:updateIdentifier')
@@ -43,6 +43,15 @@ AddEventHandler('gb_banking:updateLoggedFalse', function(identifier)
 	})
 	TriggerClientEvent('focusoff', _source)
 end)
+
+AddEventHandler('playerDropped', function()
+	local _source = source
+	local xPlayer = ESX.GetPlayerFromId(_source)
+	MySQL.Async.execute("UPDATE gb_banking SET isLogged = @isLogged WHERE identifier = @identifier", {
+		['@identifier'] = xPlayer.identifier,
+		['@isLogged'] = 0
+	})
+end)  
 
 function checking(login)
     local result = MySQL.Sync.fetchAll("SELECT gb_banking.isLogged FROM gb_banking WHERE gb_banking.login = @login", {
