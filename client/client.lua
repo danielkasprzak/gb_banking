@@ -14,7 +14,13 @@ local banks = {
 	{name="Bank", id=108, x=-351.534, y=-49.529, z=49.042},
 	{name="Bank", id=108, x=241.727, y=220.706, z=106.286},
 	{name="Bank", id=108, x=1175.0643310547, y=2706.6435546875, z=38.094036102295}
-}	
+}
+
+local atmProps = {
+	"prop_atm_02",
+	"prop_atm_03",
+	"prop_fleeca_atm"
+}
 
 local atms = {
 	{name="ATM", id=277, x=-386.733, y=6045.953, z=31.501},
@@ -129,7 +135,6 @@ AddEventHandler('gb_banking:showATM', function()
 	SetNuiFocus(true, true)
 	SendNUIMessage({type = 'openGeneral'})
 	TriggerServerEvent('bank:balance')
-	local ped = GetPlayerPed(-1)
 end)
 
 if bankMenu then
@@ -143,7 +148,6 @@ if bankMenu then
 			inMenu = true
 			SetNuiFocus(true, true)
 			SendNUIMessage({type = 'openGeneral'})
-			local ped = GetPlayerPed(-1)
 			pokazdowodbankanim()
 			portfeldowodbankprop()
 		end
@@ -155,7 +159,6 @@ if bankMenu then
 				inMenu = true
 				SetNuiFocus(true, true)
 				SendNUIMessage({type = 'openGeneral'})
-				local ped = GetPlayerPed(-1)
 			end
 		end
 	end
@@ -391,8 +394,7 @@ end)
 --==            Capture Bank Distance          ==
 --===============================================
 function nearBank()
-	local player = PlayerPedId()
-	local playerloc = GetEntityCoords(player, 0)
+	local playerloc = GetEntityCoords(PlayerPedId())
 	
 	for _, search in pairs(banks) do
 		local distance = GetDistanceBetweenCoords(search.x, search.y, search.z, playerloc['x'], playerloc['y'], playerloc['z'], true)
@@ -404,14 +406,24 @@ function nearBank()
 end
 
 function nearATM()
-	local player = PlayerPedId()
-	local playerloc = GetEntityCoords(player, 0)
-	
-	for _, search in pairs(atms) do
-		local distance = GetDistanceBetweenCoords(search.x, search.y, search.z, playerloc['x'], playerloc['y'], playerloc['z'], true)
-		
-		if distance <= 1 then
-			return true
+	local playerloc = GetEntityCoords(PlayerPedId())
+
+	if Config.UseObjects then
+		for i = 1, #atmProps do
+			local entity = GetClosestObjectOfType(playerloc, 1.0, GetHashKey(atmProps[i]), false, false, false)
+			local entityCoords = GetEntityCoords(entity)
+
+			if DoesEntityExist(entity) then
+				return true
+			end
+		end
+	else
+		for _, search in pairs(atms) do
+			local distance = GetDistanceBetweenCoords(search.x, search.y, search.z, playerloc['x'], playerloc['y'], playerloc['z'], true)
+			
+			if distance <= 1 then
+				return true
+			end
 		end
 	end
 end

@@ -1,6 +1,7 @@
 Config              = {}
 
-Config.UseATMS = false -- Define if players can use ATMS to open terminals
+Config.UseATMS = false -- Define if players can use ATMs to open terminals
+Config.UseObjects = true -- Find ATMs by props not by coordinates
 
 --[[ LOCALE ]]--
 
