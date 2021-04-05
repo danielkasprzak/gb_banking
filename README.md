@@ -2,6 +2,10 @@
 
 # gb_banking | 3.0
 
+[![developer](https://img.shields.io/badge/Developer-Nyxon-c92aa7.svg?style=flat)](https://github.com/Nyxonn)
+[![discord](https://img.shields.io/badge/Discord-Nyxon%234418-942ac9.svg?style=flat)](https://discordapp.com/users/690624129153630248)
+![developer](https://img.shields.io/badge/Version-3.0-blueviolet.svg?style=flat)
+
 ## Features of gb_banking
 
 </div>
