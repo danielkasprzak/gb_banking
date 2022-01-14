@@ -83,4 +83,6 @@ On my [discord](https://discord.gg/ZMay76X) or by openning [github issue](https:
 
 Made by [Nyxon](https://github.com/Nyxonn)
 
+[![paypal](https://www.paypalobjects.com/en_US/PL/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=LHX286XBZ5BZS)
+
 </div>
