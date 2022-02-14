@@ -75,7 +75,7 @@ In the **config.lua** file.
 Yes script is **ESX only**.
 
 - Where can i get help?<br />
-On my [discord](https://discord.gg/ZMay76X) or by openning [github issue](https://github.com/Nyxonn/gb_banking/issues).
+By openning [github issue](https://github.com/Nyxonn/gb_banking/issues).
 
 <div align="center">
 
