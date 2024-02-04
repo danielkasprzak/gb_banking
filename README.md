@@ -1,11 +1,5 @@
 <div align="center">
 
-# gb_banking | 3.0
-
-[![developer](https://img.shields.io/badge/Developer-Nyxon-c92aa7.svg?style=flat)](https://github.com/Nyxonn)
-[![discord](https://img.shields.io/badge/Discord-Nyxon%234418-942ac9.svg?style=flat)](https://discordapp.com/users/690624129153630248)
-![developer](https://img.shields.io/badge/Version-3.0-blueviolet.svg?style=flat)
-
 ## Features of gb_banking
 
 </div>
@@ -76,13 +70,3 @@ Yes script is **ESX only**.
 
 - Where can i get help?<br />
 By openning [github issue](https://github.com/Nyxonn/gb_banking/issues).
-
-<div align="center">
-
-## Credits
-
-Made by [Nyxon](https://github.com/Nyxonn)
-
-[![paypal](https://www.paypalobjects.com/en_US/PL/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=LHX286XBZ5BZS)
-
-</div>
